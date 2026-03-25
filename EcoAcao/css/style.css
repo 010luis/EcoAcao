@@ -112,3 +112,49 @@ li {
     margin-bottom: 160px;
 }
 
+
+
+
+/*Rafael*/
+.flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pilares-titulo{
+    color: var(--cor-texto-titulo);
+    font-size: var(--tamanho-texto-titulo);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 61px;
+}
+
+.pilares-itens {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    width: 100%;      
+    margin: 0 auto;   
+    flex-wrap: nowrap;
+}
+
+.pilar-card {
+    border: var(--tamanho-borda-global) solid var(--borda-bottom-navbar);
+}
+
+.pilar-card img {
+    width: 100%;
+    height: auto;
+}
+
+.pilar-desc {
+    padding: 16px;
+    font-size: var(--tamanho-texto-base);
+    color: var(--cor-texto-primaria);
+    font-weight: 400;
+    text-align: justify;
+}
+
