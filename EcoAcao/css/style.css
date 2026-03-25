@@ -72,5 +72,43 @@ li {
 
 .conteudo {
     max-width: 1400px;
-
 }
+
+
+
+/*Luciano*/
+.banner-inicio {
+    width: 100%;
+}
+
+.banner-inicio img {
+    width: 100%;
+    height: auto;
+}
+
+.titulo-banner {
+    display: none;
+}
+
+.sobre-nos {
+    text-align: center;
+    margin-top: 66px;
+}
+
+.sobre-titulo {
+    font-size: 20px;
+    color: var(--cor-texto-titulo);
+    font-weight: 400;
+    margin-bottom: 61px;
+}
+
+.sobre-desc {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: var(--tamanho-texto-base);
+    color: var(--tamanho-texto-base);
+    font-weight: 400;
+    text-align: justify;
+    margin-bottom: 160px;
+}
+
