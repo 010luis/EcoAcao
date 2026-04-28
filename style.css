@@ -1,0 +1,663 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS & VARIÁVEIS
+   ========================================================================== */
+
+:root {
+  /* --- Cores Principais --- */
+  --cor-primaria: #448054;
+  --cor-primaria-escura: #3a6d47;
+  --cor-secundaria: #6d8493;
+  --cor-destaque: rgba(234, 241, 197, 0.1);
+
+  /* --- Cores de Texto e Fundo --- */
+  --cor-fundo-principal: #ffffff;
+  --cor-texto-principal: #1a1816;
+  --cor-texto-claro: #ffffff;
+  --cor-borda-clara: #eeeeee;
+
+  /* --- Tipografia --- */
+  --fonte-principal: "Inter", sans-serif;
+  --fonte-destaque: "Poppins", sans-serif;
+
+  /* --- Tamanhos de Fonte --- */
+  --tamanho-fonte-base: 16px;
+  --tamanho-fonte-nav-titulo: 20px;
+  --tamanho-fonte-secao-titulo: 18px;
+  --tamanho-fonte-banner: 30px;
+
+  /* --- Espaçamentos e Layout --- */
+  --largura-maxima-container: 1400px;
+  --largura-media-container: 1000px;
+  --espacamento-secao: 100px;
+  --borda-pequena: 3px;
+  --borda-redonda: 50%;
+  --borda-botao: 999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor-fundo-principal);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-principal);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cor-primaria);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-primaria-escura);
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--cor-fundo-principal);
+  transition: all 0.3s ease;
+}
+
+.navbar.rolagem {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-topo {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--cor-borda-clara);
+}
+
+.logo img {
+  width: 43px;
+  height: 34px;
+  object-fit: cover;
+}
+
+.navbar-titulo {
+  font-size: var(--tamanho-fonte-nav-titulo);
+  font-weight: 500;
+}
+
+.navbar-itens {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--cor-borda-clara);
+}
+
+.navbar-itens ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.navbar-itens li {
+  font-size: var(--tamanho-fonte-base);
+  cursor: pointer;
+}
+
+.navbar-itens li.ativo {
+  border-bottom: 2px solid var(--cor-primaria);
+}
+
+/* ==========================================================================
+   BANNER
+   ========================================================================== */
+
+.banner-inicio {
+  width: 100%;
+  position: relative;
+}
+
+.banner-inicio img {
+  max-width: 100%;
+  margin-top: 16px;
+  display: block;
+}
+
+.titulo-banner {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: var(--cor-texto-claro);
+  padding: 20px;
+  background-color: var(--cor-destaque);
+}
+
+.titulo-bn {
+  font-family: var(--fonte-destaque);
+  font-size: var(--tamanho-fonte-banner);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================================== */
+
+.conteudo {
+  margin: 0 auto;
+  padding-bottom: 10rem;
+}
+
+/* --- Seção: Sobre Nós --- */
+.sobre-nos {
+  text-align: center;
+  margin-top: 66px;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.sobre-titulo {
+  font-weight: 400;
+  color: var(--cor-secundaria);
+  font-size: var(--tamanho-fonte-secao-titulo);
+  max-width: var(--largura-maxima-container);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sobre-desc {
+  font-weight: 400;
+  color: var(--cor-texto-principal);
+  font-size: var(--tamanho-fonte-base);
+  max-width: 703px;
+  text-align: justify;
+  margin: 0 auto;
+}
+
+/* --- Seção: Nossos Pilares --- */
+.flex {
+  margin: 0 auto;
+  margin-top: var(--espacamento-secao);
+  max-width: var(--largura-maxima-container);
+}
+
+.pilares-titulo {
+  font-weight: 400;
+  color: var(--cor-secundaria);
+  font-size: var(--tamanho-fonte-secao-titulo);
+  text-align: center;
+  margin-top: 147px;
+  margin-bottom: 46px;
+}
+
+.pilares-itens {
+  display: flex;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.pilar-card {
+  background: none;
+  border: 1px solid var(--cor-borda-clara);
+  text-align: center;
+  border-radius: var(--borda-pequena);
+}
+
+.pilar-card img {
+  max-width: 160px;
+}
+
+.pilar-desc {
+  text-align: left;
+  padding: 16px;
+  color: var(--cor-texto-principal);
+  font-size: var(--tamanho-fonte-base);
+  font-weight: 400;
+}
+
+/* --- Seção: Colaboradores --- */
+.flex-voluntarios {
+  margin: 0 auto;
+  margin-top: var(--espacamento-secao);
+  max-width: var(--largura-media-container);
+}
+
+.voluntarios-topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 147px;
+  margin-bottom: 46px;
+  padding: 0 10px;
+}
+
+.voluntarios-titulo {
+  font-weight: 400;
+  color: var(--cor-secundaria);
+  font-size: var(--tamanho-fonte-secao-titulo);
+  text-align: center;
+}
+
+.voluntarios-botao {
+  position: absolute;
+  right: 10px;
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--borda-botao);
+  cursor: pointer;
+  font-family: var(--fonte-principal);
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.voluntarios-botao:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.voluntarios-itens {
+  display: flex;
+  gap: 20px;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
+.voluntario-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.voluntario-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--borda-redonda);
+}
+
+.voluntario-nome {
+  font-size: var(--tamanho-fonte-base);
+  font-weight: 400;
+  color: var(--cor-texto-principal);
+}
+
+/* --- Seção: Projetos --- */
+.container-projetos {
+  margin: 0 auto;
+  margin-top: var(--espacamento-secao);
+  max-width: var(--largura-maxima-container);
+}
+
+.projetos-titulo {
+  font-weight: 400;
+  color: var(--cor-secundaria);
+  font-size: var(--tamanho-fonte-secao-titulo);
+  text-align: center;
+  margin-top: 147px;
+  margin-bottom: 46px;
+}
+
+.projetos-itens {
+  display: flex;
+  gap: 20px;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  border: 1px solid var(--cor-borda-clara);
+  border-radius: var(--borda-pequena);
+  width: 100%;
+}
+
+.card-projeto img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--borda-redonda);
+}
+
+.descricao-projeto {
+  font-size: var(--tamanho-fonte-base);
+  font-weight: 400;
+  color: var(--cor-texto-principal);
+}
+
+.card-projeto img {
+  max-width: 160px;
+}
+
+/* ==========================================================================
+   SEÇÃO: DOAÇÃO E COLABORADOR
+   ========================================================================== */
+
+.flex-doacao-colaborador {
+  display: flex;
+  max-width: 1800px;
+  margin: 147px auto 0;
+  gap: 120px;
+  padding: 0 40px;
+  justify-content: center;
+}
+
+.coluna-form {
+  flex: 1;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-titulo {
+  font-weight: 400;
+  color: var(--cor-secundaria);
+  font-size: var(--tamanho-fonte-secao-titulo);
+  text-align: center;
+}
+
+.form-desc {
+  font-weight: 400;
+  color: var(--cor-texto-principal);
+  font-size: var(--tamanho-fonte-base);
+  text-align: center;
+  line-height: 1.4;
+}
+.container-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.linha-input {
+  display: flex;
+  gap: 20px;
+}
+
+.linha-input .input-grupo {
+  flex: 1;
+}
+
+.input-grupo {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Label que interrompe a borda (Google Style) --- */
+.label-borda {
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  background-color: var(--cor-fundo-principal);
+  padding: 0 6px;
+  font-size: 13px;
+  color: #555;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.input-grupo input,
+.input-grupo textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--cor-borda-clara);
+  border-radius: 4px;
+  font-family: var(--fonte-principal);
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.input-grupo input:focus,
+.input-grupo textarea:focus {
+  border-color: var(--cor-primaria);
+}
+
+.input-grupo input::placeholder,
+.input-grupo textarea::placeholder {
+  color: #bbbbbb;
+  font-size: 15px;
+}
+
+.input-grupo textarea {
+  height: 180px;
+  resize: none;
+}
+
+/* --- Seleção de Valor (Doação) --- */
+.valores-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label-pequeno {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.valores-grid {
+  display: flex;
+  gap: 12px;
+}
+
+.botao-valor {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid var(--cor-borda-clara);
+  background: none;
+  cursor: pointer;
+  font-family: var(--fonte-principal);
+  font-size: 16px;
+  color: #555;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.botao-valor:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+/* --- Botões de Ação --- */
+.botao-acao {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: var(--borda-botao);
+  cursor: pointer;
+  font-family: var(--fonte-principal);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+  width: fit-content;
+  align-self: center;
+}
+
+.botao-acao:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.botao-container-fim {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.botao-container-fim .botao-acao {
+  align-self: flex-end;
+}
+
+/* Responsividade Básica */
+@media (max-width: 1100px) {
+  .flex-doacao-colaborador {
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .coluna-form {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+.rodape {
+  width: 100%;
+  border-top: 1px solid var(--cor-borda-clara);
+  padding: 80px 0 0px;
+  background-color: var(--cor-fundo-principal);
+  margin-top: 150px;
+}
+
+.rodape-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.rodape-coluna {
+  display: flex;
+  flex-direction: column;
+}
+
+.rodape-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rodape-links li {
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.rodape-links li:hover {
+  color: var(--cor-primaria);
+}
+
+/* Ajuste específico para a segunda coluna se necessário */
+.rodape-coluna:nth-child(2) li {
+  color: #666;
+  font-size: 14px;
+}
+
+.rodape-info {
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.rodape-logo {
+  width: 54px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.rodape-email {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.rodape-telefone {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+}
+
+.rodape-topo-coluna {
+  align-items: flex-end;
+}
+
+.botao-topo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-topo:hover {
+  background-color: var(--cor-primaria-escura);
+  transform: translateY(-5px);
+}
+
+.botao-topo img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsividade Rodapé */
+@media (max-width: 1100px) {
+  .rodape-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .rodape-coluna {
+    align-items: center;
+  }
+
+  .rodape-topo-coluna {
+    align-items: center;
+  }
+}
