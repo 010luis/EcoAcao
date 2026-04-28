@@ -35,57 +35,9 @@
             </p>
 
             <div class="voluntarios-itens"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 40px; justify-content: center; padding: 20px;">
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 40px; justify-content: center; padding: 20px;" id="container-voluntarios">
 
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
 
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Luis Henrique</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">João Silva</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Maria Oliveira</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Pedro Santos</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Ana Costa</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Carlos Almeida</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Sofia Mendes</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Luiza Duarte</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="../imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Renato Lima</p>
-                </div>
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
@@ -101,6 +53,38 @@
     <iframe src="../rodape.html"
         style="width: 100%; height: 310px; border: none; margin-top: 50px; background-color: var(--cor-fundo-principal);"
         title="Rodapé"></iframe>
+
+        <script>
+    const container = document.getElementById('container-voluntarios');
+
+    async function carregarVoluntarios() {
+        try {
+            // Faz a requisição para o seu servidor fake
+            const resposta = await fetch('http://localhost:3000/voluntarios');
+            const voluntarios = await resposta.json();
+
+            // Limpa o container antes de carregar
+            container.innerHTML = "";
+
+            // Cria o HTML para cada voluntário recebido
+            voluntarios.forEach(voluntario => {
+                const card = `
+                    <div class="voluntario-card">
+                        <img src="${voluntario.avatar || './imagens/sem-avatar.jpg'}" alt="Voluntário">
+                        <p class="voluntario-nome">${voluntario.nome}</p>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        } catch (erro) {
+            console.error("Erro ao buscar voluntários:", erro);
+            container.innerHTML = "<p>Erro ao carregar voluntários.</p>";
+        }
+    }
+
+    // Chama a função ao carregar a página
+    carregarVoluntarios();
+</script>
 </body>
 
 </html>

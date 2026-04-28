@@ -72,41 +72,8 @@
                     style="text-decoration: none;">Ver todos</a>
             </div>
 
-            <div class="voluntarios-itens">
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Voluntário">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Colaborador">
-                    <p class="voluntario-nome">Luis Henrique</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Colaborador">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Colaborador">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Colaborador">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
-
-                <div class="voluntario-card">
-                    <img src="./imagens/sem-avatar.jpg" alt="Colaborador">
-                    <p class="voluntario-nome">Levi Portugal</p>
-                </div>
+            <div class="voluntarios-itens" id="container-voluntarios">
+                
             </div>
         </section>
 
@@ -224,6 +191,40 @@
     <iframe src="./rodape.html"
         style="width: 100%; height: 310px; border: none; margin-top: 50px; background-color: var(--cor-fundo-principal);"
         title="Rodapé"></iframe>
+
+
+
+    <script>
+    const container = document.getElementById('container-voluntarios');
+
+    async function carregarVoluntarios() {
+        try {
+            // Faz a requisição para o seu servidor fake
+            const resposta = await fetch('http://localhost:3000/voluntarios');
+            const voluntarios = await resposta.json();
+
+            // Limpa o container antes de carregar
+            container.innerHTML = "";
+
+            // Cria o HTML para cada voluntário recebido
+            voluntarios.forEach(voluntario => {
+                const card = `
+                    <div class="voluntario-card">
+                        <img src="${voluntario.avatar || './imagens/sem-avatar.jpg'}" alt="Voluntário">
+                        <p class="voluntario-nome">${voluntario.nome}</p>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        } catch (erro) {
+            console.error("Erro ao buscar voluntários:", erro);
+            container.innerHTML = "<p>Erro ao carregar voluntários.</p>";
+        }
+    }
+
+    // Chama a função ao carregar a página
+    carregarVoluntarios();
+</script>
 </body>
 
 </html>
